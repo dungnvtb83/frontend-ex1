@@ -205,7 +205,7 @@ const TableList: React.FC = () => {
               {...rest}
               placeholder={intl.formatMessage({
                 id: 'pages.searchTable.exception',
-                defaultMessage: 'Please enter the reason for the exception!',
+                defaultMessage: 'Please input the reason for the exception!',
               })}
             />
           );

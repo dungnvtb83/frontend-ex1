@@ -19,38 +19,14 @@
     ],
   },
   {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    component: './Admin',
-    routes: [
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        icon: 'smile',
-        component: './Welcome',
-      },
-      {
-        component: './404',
-      },
-    ],
-  },
-  {
-    name: 'list.table-list',
+    path: '/article',
+    name: 'article',
     icon: 'table',
-    path: '/list',
-    component: './TableList',
+    component: './Article',
   },
   {
     path: '/',
-    redirect: '/welcome',
+    redirect: '/article',
   },
   {
     component: './404',

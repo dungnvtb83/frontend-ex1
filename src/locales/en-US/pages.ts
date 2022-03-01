@@ -34,7 +34,7 @@ export default {
   'pages.searchTable.updateForm.ruleConfig': 'Rule configuration',
   'pages.searchTable.updateForm.basicConfig': 'Basic Information',
   'pages.searchTable.updateForm.ruleName.nameLabel': 'Rule Name',
-  'pages.searchTable.updateForm.ruleName.nameRules': 'Please enter the rule name!',
+  'pages.searchTable.updateForm.ruleName.nameRules': 'Please input the rule name!',
   'pages.searchTable.updateForm.ruleDesc.descLabel': 'Rule Description',
   'pages.searchTable.updateForm.ruleDesc.descPlaceholder': 'Please enter at least five characters',
   'pages.searchTable.updateForm.ruleDesc.descRules':
@@ -55,7 +55,7 @@ export default {
   'pages.searchTable.nameStatus.online': 'online',
   'pages.searchTable.nameStatus.abnormal': 'abnormal',
   'pages.searchTable.titleUpdatedAt': 'Last Scheduled at',
-  'pages.searchTable.exception': 'Please enter the reason for the exception!',
+  'pages.searchTable.exception': 'Please input the reason for the exception!',
   'pages.searchTable.titleOption': 'Option',
   'pages.searchTable.config': 'Configuration',
   'pages.searchTable.subscribeAlert': 'Subscribe to alerts',

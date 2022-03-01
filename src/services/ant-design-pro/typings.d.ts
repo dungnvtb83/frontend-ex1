@@ -62,7 +62,7 @@ declare namespace API {
   };
 
   type LoginParams = {
-    username?: string;
+    email?: string;
     password?: string;
     autoLogin?: boolean;
     type?: string;
@@ -97,5 +97,22 @@ declare namespace API {
     datetime?: string;
     description?: string;
     type?: NoticeIconItemType;
+  };
+
+  type ArticleItem = {
+    id?: string;
+    title?: string;
+    body?: string;
+    user_id?: string;
+    updatedAt?: string;
+    createdAt?: string;
+  };
+
+  type ArticleList = {
+    data?: ArticleItem[];
+    total?: number;
+    success?: boolean;
+    pageSize?: number;
+    current?: number;
   };
 }

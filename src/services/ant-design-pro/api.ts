@@ -18,6 +18,8 @@ export async function currentUser(options?: { [key: string]: any }) {
     method: 'GET',
     headers: getHeaders(),
     ...(options || {}),
+  }).then(data=>{
+    return {...data, status: 'ok'};
   });
 }
 
@@ -48,7 +50,7 @@ export async function login(body: API.LoginParams, options?: { [key: string]: an
       'Content-Type': 'application/json',
       'Accept':'application/json',
     },
-    data: body,
+    data: {...body, password_confirmation: body.password},
     ...(options || {skipErrorHandler: true}),
   })
   .then(data=>{
@@ -113,3 +115,56 @@ export async function removeRule(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
+
+/** GET /api/articles */
+export async function getArticles(
+  params: {
+    current?: number;
+    pageSize?: number;
+    sort?: string,
+    direction?: string,
+  },
+  options?: { [key: string]: any },
+) {
+  return request<any>('/api/articles', {
+    method: 'GET',
+    headers: getHeaders(),
+    params,
+    ...(options || {}),
+  }).then(res=>{
+    console.log('res', res);
+    return <API.ArticleList> { data: res.data, total: res.total, success: true, pageSize: res.per_page, current: res.current_page};
+  });
+}
+
+/** add manufacture /api/articles */
+export async function addArticle(body: API.ArticleItem, options?: { [key: string]: any }) {
+  return request<any>('/api/articles', {
+    method: 'POST',
+    headers: getHeaders(),
+    data: body,
+    ...(options || {}),
+  }).then(res=>res.id !== null);
+}
+
+/** Update an existing articles PUT /api/articles/{id} */
+export async function updateArticle(body: API.ArticleItem, options?: { [key: string]: any }) {
+  const { id } = body;
+  return request<any>(`/api/articles/${id}`, {
+    method: 'PUT',
+    headers: getHeaders(),
+    data: body,
+    ...(options || {}),
+  });
+}
+
+export async function deleteArticle(body: API.ArticleItem, options?: { [key: string]: any }) {
+  const { id } = body;
+  return request<any>(`/api/articles/${id}`, {
+    method: 'DELETE',
+    headers: getHeaders(),
+    data: body,
+    ...(options || {}),
+  });
+}
+
